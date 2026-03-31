@@ -46,3 +46,9 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 * **`lib/models/ApiResponse.ts`:** Defines the interfaces for KST's GET `/api/patients` API responses.
 * **`lib/models/Patient.ts`:** Contains the core data structures and type definitions for patient records.
 * **`lib/models/Statistics.ts`:** Defines the data models used for calculating and returning the final assessment statistics to be submitted to kst.
+
+I almost forgot.
+### Environment Variables.
+**create .env and add these two env variables**
+- `KSENSE_TECH_API_BASE_URL` - the API base url for KST with the /api part please.
+- `KSENSE_TECH_API_KEY` - the API key
