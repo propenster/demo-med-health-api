@@ -20,17 +20,29 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## My assessment solution
 
-To learn more about Next.js, take a look at the following resources:
+### Source Map
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Endpoints
+- app/api/patients
+    `route.ts` - this is my utility endpoint to just lazily load all the patients
+- app/api/risk/assessment
+    `route.ts` - this is the main endpoint that fetches patients, and conducts risk assessment THEN returns 200 OK response with patients and statistics
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Services, business logic and utilities
+- lib/models
+    `ApiResponse.ts`
+    `Patient.ts`
+    `Statistics`
+- lib
+    `service.ts` - contains all business logic, fetching patients and conducting risk assessment analysis...
+- public
+    `ksensetech_web_dev.postman_collection.json` - My exported postman collection used during development
 
-## Deploy on Vercel
+### Core Services & Models
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **`lib/service.ts`:** Contains the business logic. This handles the data fetching orchestration and executes the algorithms for risk analysis.
+* **`lib/models/ApiResponse.ts`:** Defines the interfaces for KST's GET `/api/patients` API responses.
+* **`lib/models/Patient.ts`:** Contains the core data structures and type definitions for patient records.
+* **`lib/models/Statistics.ts`:** Defines the data models used for calculating and returning the final assessment statistics to be submitted to kst.
